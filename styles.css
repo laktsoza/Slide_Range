@@ -1,0 +1,38 @@
+body {
+    position: relative;
+    background-color: lightgray;
+}
+
+.container {
+    text-align: center;
+}
+
+.img-btn {
+    display: inline-block;
+    width: 280px;
+    margin: 20px;
+}
+.img-btn button{
+   cursor: pointer;
+}
+
+.img-btn img, .no-image img {
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 25px grey;
+    border-radius: 5px;
+    padding: 3px;
+    
+}
+
+.no-image {
+    text-align: center;
+    width: 280px;
+    position: fixed;
+    top: 355px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
