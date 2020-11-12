@@ -1,37 +1,61 @@
 
-const images = document.querySelectorAll('.img-btn img');
-const btns = document.getElementsByTagName('button');
-const noImage = document.querySelector('.no-image img');
+const dotElements = document.querySelectorAll('.dots span');
+const dotsContainer = document.getElementById('dots');
+const imagesContainer = document.querySelector(".images");
+const valueInput = document.getElementById('range');
 
-let i = 0;
+let i = 1;
+let int = setInterval(changeImage, valueInput.value);
 
 function changeImage () {
-    noImage.src = images[i].src;
+    let redSpan = document.querySelector('.red');
+    let showImage = document.querySelector('.show');
+    if(redSpan) {
+        redSpan.classList.remove('red'); 
+    }
+    
+    if(showImage) {
+        showImage.classList.remove('show');
+    }
+
+    dotElements[i].classList.add('red');
+    imagesContainer.children[i].classList.add('show');
+
     i++;
-    if(i > images.length-1) {
+    if(i > imagesContainer.children.length-1) {
         i = 0;
     }
-}  let int = setInterval(changeImage, 1000)
+}  
 
-function pause (e) {
-    noImage.src = e.target.src;
+function pause () {
     clearInterval(int);
 }
+
 function resume () {
-    int = setInterval(changeImage, 1000);
+    int = setInterval(changeImage, valueInput.value);
 }
 
-noImage.addEventListener('mouseover', pause);
-noImage.addEventListener('mouseout', resume);
+imagesContainer.addEventListener('mouseover', pause);
+imagesContainer.addEventListener('mouseout', resume);
+dotsContainer.addEventListener("click", chooseImage)
 
-function chooseImage (e) {
+
+function chooseImage(e) {
+    if(e.target.tagName === "SPAN"){
+        pause();
+        i = +e.target.getAttribute('data-num');
+        changeImage();
+        resume();
+    }    
+}
+
+
+console.log(valueInput.value);
+
+
+function changeInput() {
     clearInterval(int);
-    noImage.src = e.target.previousElementSibling.src;
-    resume();
+    int = setInterval(changeImage, valueInput.value)
 }
 
-for(let i = 0; i < btns.length; i++) {
-    btns[i].addEventListener('click', chooseImage);
-}
-
-
+valueInput.addEventListener('change', changeInput);

@@ -1,38 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
+    padding: 50px;
     position: relative;
     background-color: lightgray;
 }
 
-.container {
-    text-align: center;
-}
-
-.img-btn {
-    display: inline-block;
-    width: 280px;
-    margin: 20px;
-}
-.img-btn button{
-   cursor: pointer;
-}
-
-.img-btn img, .no-image img {
-    width: 100%;
-    box-sizing: border-box;
-    box-shadow: 5px 5px 25px grey;
-    border-radius: 5px;
-    padding: 3px;
-    
-}
-
 .no-image {
+    width: 500px;
+    margin: 0 auto;
     text-align: center;
-    width: 280px;
-    position: fixed;
-    top: 355px;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    cursor: pointer;
 }
+
+.images {
+    height: 400px;
+    width: 400px;
+    position: relative;
+    margin: 0 auto;
+    -moz-box-shadow: 0 0 10px #000000;
+    -webkit-box-shadow: 0 0 10px #000000;
+    box-shadow: 0 0 10px #000000;
+    border-radius: 5px;
+}
+
+.images img {
+    border-radius: 5px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.images .show {
+    opacity: 1;
+}
+
+.dots {
+    margin-top: 10px;
+    background-color: lightgray;
+    width: 100%;
+    height: 20px;
+}
+
+.dots span {
+    display: inline-block;
+    background: white;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    margin: 5px;
+    cursor: pointer;
+    -moz-box-shadow: 0 0 5px #000000;
+    -webkit-box-shadow: 0 0 10px #000000;
+    box-shadow: 0 0 5px #000000;
+}
+
+.dots .red {
+    background-color: red;
+}
+
+.range {
+    padding: 10px;
+    text-align: center;
+}
+
