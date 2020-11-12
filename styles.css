@@ -63,8 +63,14 @@ body {
     background-color: red;
 }
 
-.range {
-    padding: 10px;
-    text-align: center;
+#range {
+    opacity: 0.5;
+    cursor: pointer;
 }
-
+.range {
+    text-align: center;
+    padding: 10px;
+}
+#range:hover {
+    opacity: 1;
+}

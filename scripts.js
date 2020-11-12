@@ -44,7 +44,6 @@ function chooseImage(e) {
     }    
 }
 
-
 function changeInput() {
     clearInterval(int);
     int = setInterval(changeImage, valueInput.value)
@@ -54,3 +53,4 @@ imagesContainer.addEventListener('mouseover', pause);
 imagesContainer.addEventListener('mouseout', resume);
 dotsContainer.addEventListener("click", chooseImage)
 valueInput.addEventListener('change', changeInput);
+
