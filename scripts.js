@@ -35,11 +35,6 @@ function resume () {
     int = setInterval(changeImage, valueInput.value);
 }
 
-imagesContainer.addEventListener('mouseover', pause);
-imagesContainer.addEventListener('mouseout', resume);
-dotsContainer.addEventListener("click", chooseImage)
-
-
 function chooseImage(e) {
     if(e.target.tagName === "SPAN"){
         pause();
@@ -50,12 +45,12 @@ function chooseImage(e) {
 }
 
 
-console.log(valueInput.value);
-
-
 function changeInput() {
     clearInterval(int);
     int = setInterval(changeImage, valueInput.value)
 }
 
+imagesContainer.addEventListener('mouseover', pause);
+imagesContainer.addEventListener('mouseout', resume);
+dotsContainer.addEventListener("click", chooseImage)
 valueInput.addEventListener('change', changeInput);
